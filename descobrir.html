@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Descubra sua Tribo</title>
+
+<style>
+body{
+background:#0D0A05;
+color:#F0E6C8;
+font-family:Arial, sans-serif;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:100vh;
+text-align:center;
+}
+
+h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
+button{
+padding:16px 40px;
+font-size:18px;
+background:#D4AF37;
+border:none;
+cursor:pointer;
+border-radius:6px;
+}
+
+.result{
+margin-top:30px;
+font-size:26px;
+color:#D4AF37;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Descubra sua Tribo</h1>
+
+<p>Clique no botão para descobrir sua tribo.</p>
+
+<button onclick="sortearTribo()">Descobrir</button>
+
+<div class="result" id="resultado"></div>
+
+<script>
+
+const tribos = [
+"Judá 🦁",
+"Levi ✡",
+"Dã 🦅",
+"José 🌳",
+"Benjamim 🐺",
+"Naftali 🦌"
+];
+
+function sortearTribo(){
+
+const tribo = tribos[Math.floor(Math.random()*tribos.length)];
+
+document.getElementById("resultado").innerHTML =
+"Você pertence à tribo de <b>" + tribo + "</b>";
+
+}
+
+</script>
+
+</body>
+</html>

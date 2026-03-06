@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<!-- Open Graph / WhatsApp / Telegram -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="As Tribos de Israel — UNAAD Passo Fundo">
+<meta property="og:description" content="Uma jornada. Seis tribos. Destino eterno. Descubra sua tribo e aceite o desafio! Um projeto da AD Passo Fundo.">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="As Tribos de Israel — UNAAD Passo Fundo">
+<meta name="twitter:description" content="Uma jornada. Seis tribos. Destino eterno. Descubra sua tribo!">
+
+<!-- PWA / Mobile -->
+<meta name="theme-color" content="#0D0A05">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tribos de Israel">
+
+<title>As Tribos de Israel — UNAAD Passo Fundo</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap');
+</style>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#D4AF37;--gold-light:#F5D876;--gold-dark:#8B6914;--sand:#F0E6C8;--deep:#0D0A05;--parchment:#EDD9A3}
+body{background:var(--deep);font-family:'Raleway',sans-serif;color:var(--sand);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,#2a1a00,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 80%,#1a0a00,transparent 50%);z-index:0}
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.star{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.1}50%{opacity:.9}}
+header{position:relative;z-index:10;text-align:center;padding:60px 20px 40px}
+.eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:16px;animation:fadeDown 1s ease both}
+h1{font-family:'Cinzel Decorative',cursive;font-size:clamp(2.8rem,8vw,6rem);font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold) 40%,var(--gold-dark) 70%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 30px rgba(212,175,55,.4));animation:fadeDown 1s .2s ease both}
+.subtitle{font-family:'Cinzel',serif;font-size:clamp(.85rem,2vw,1.1rem);letter-spacing:3px;color:var(--parchment);opacity:.75;margin-top:14px;animation:fadeDown 1s .4s ease both}
+.divider{width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px auto;animation:fadeIn 1s .6s ease both}
+.tagline{font-size:clamp(.9rem,2.5vw,1.1rem);font-weight:300;color:var(--sand);opacity:.7;max-width:560px;margin:0 auto;line-height:1.7;animation:fadeIn 1s .8s ease both}
+.tribes-section{position:relative;z-index:10;padding:40px 20px 80px;max-width:1100px;margin:0 auto}
+.section-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:40px;opacity:.6}
+.tribes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:700px){.tribes-grid{grid-template-columns:repeat(2,1fr);gap:14px}}
+.tribe-card{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.22,.97,.44,1),box-shadow .35s ease;animation:riseUp .7s calc(var(--i)*.1s + .5s) ease both}
+.tribe-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 40px var(--tribe-glow)}
+.tribe-bg{position:absolute;inset:0;background:var(--tribe-gradient);opacity:.18;transition:opacity .35s}
+.tribe-card:hover .tribe-bg{opacity:.3}
+.tribe-border{position:absolute;inset:0;border-radius:16px;border:1px solid var(--tribe-color);opacity:.35;transition:opacity .35s}
+.tribe-card:hover .tribe-border{opacity:.7}
+.tribe-shine{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.07),transparent 50%);opacity:0;transition:opacity .35s;pointer-events:none}
+.tribe-card:hover .tribe-shine{opacity:1}
+.tribe-inner{position:relative;z-index:2;padding:24px 16px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;background:linear-gradient(180deg,rgba(13,10,5,.7),rgba(13,10,5,.9))}
+.tribe-symbol{width:100px;height:100px;filter:drop-shadow(0 0 14px var(--tribe-glow));transition:transform .35s ease,filter .35s ease;flex-shrink:0}
+.tribe-symbol svg{width:100%;height:100%}
+.tribe-card:hover .tribe-symbol{transform:scale(1.12);filter:drop-shadow(0 0 24px var(--tribe-glow))}
+.tribe-name{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;color:var(--tribe-color);text-shadow:0 0 20px var(--tribe-glow);letter-spacing:1px}
+.tribe-hebrew{font-size:1.1rem;opacity:.45;letter-spacing:2px;font-family:'Cinzel',serif}
+.tribe-keyword{font-family:'Cinzel Decorative',cursive;font-size:clamp(.7rem,1.8vw,.9rem);font-weight:900;letter-spacing:4px;color:var(--tribe-color);text-transform:uppercase;text-shadow:0 0 14px var(--tribe-glow);opacity:.9}
+.tribe-virtue{font-size:.78rem;color:var(--sand);opacity:.6;font-style:italic;line-height:1.4;max-width:180px}
+.tribe-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--tribe-color);border-radius:20px;padding:4px 12px;font-size:.68rem;letter-spacing:1px;color:var(--tribe-color);opacity:.8;margin-top:4px}
+.trail-section{position:relative;z-index:10;max-width:900px;margin:0 auto 80px;padding:0 20px}
+.trail-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:30px;opacity:.6}
+.trail-steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;row-gap:16px}
+.trail-step{display:flex;flex-direction:column;align-items:center;gap:8px}
+.trail-node{width:44px;height:44px;border-radius:50%;border:2px solid var(--gold-dark);background:rgba(212,175,55,.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;transition:all .3s ease}
+.trail-node:hover{border-color:var(--gold);background:rgba(212,175,55,.2);transform:scale(1.1)}
+.trail-node-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:1px;color:var(--gold);opacity:.6;text-align:center;max-width:60px}
+.trail-connector{width:40px;height:2px;background:var(--gold-dark);opacity:.3;margin-bottom:22px;flex-shrink:0}
+.cta-section{position:relative;z-index:10;text-align:center;padding:20px 20px 80px;max-width:700px;margin:0 auto}
+.scroll-divider{display:flex;align-items:center;gap:16px;margin-bottom:50px}
+.scroll-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark))}
+.scroll-line.r{background:linear-gradient(90deg,var(--gold-dark),transparent)}
+.scroll-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.mission-text{font-family:'Cinzel',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--parchment);line-height:1.6;margin-bottom:16px}
+.mission-sub{font-size:.9rem;opacity:.6;line-height:1.8;margin-bottom:40px}
+.cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:3px;text-transform:uppercase;color:var(--deep);background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));padding:16px 40px;border-radius:4px;border:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 4px 20px rgba(212,175,55,.3);text-decoration:none}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,.5)}
+.emblem{font-size:3rem;margin-bottom:8px;display:inline-block;animation:glowPulse 3s ease-in-out infinite,fadeIn 1s ease both;filter:drop-shadow(0 0 20px rgba(212,175,55,.6))}
+@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 16px rgba(212,175,55,.5))}50%{filter:drop-shadow(0 0 32px rgba(212,175,55,.9))}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes riseUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(6px)}
+.modal-overlay.active{opacity:1;pointer-events:all}
+.modal{background:linear-gradient(160deg,#1a1205,#0d0a05);border:1px solid var(--tribe-modal-color,var(--gold));border-radius:20px;padding:36px 32px;max-width:420px;width:100%;text-align:center;transform:scale(.9);transition:transform .3s ease;box-shadow:0 0 60px var(--tribe-modal-glow,rgba(212,175,55,.2))}
+.modal-overlay.active .modal{transform:scale(1)}
+.modal-symbol{width:90px;height:90px;margin:0 auto 12px}
+.modal-symbol svg{width:100%;height:100%}
+.modal-name{font-family:'Cinzel Decorative',cursive;font-size:1.8rem;color:var(--tribe-modal-color,var(--gold));margin-bottom:4px}
+.modal-meaning{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:3px;opacity:.55;margin-bottom:20px;text-transform:uppercase}
+.modal-divider{width:60px;height:1px;background:var(--tribe-modal-color,var(--gold));margin:0 auto 20px;opacity:.4}
+.modal-desc{font-size:.88rem;line-height:1.8;opacity:.75;margin-bottom:20px}
+.modal-verse{font-family:'Cinzel',serif;font-size:.78rem;font-style:italic;color:var(--tribe-modal-color,var(--gold));opacity:.7;line-height:1.6;margin-bottom:24px;padding:12px 16px;border-left:2px solid var(--tribe-modal-color,var(--gold));text-align:left}
+.modal-close{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:2px;color:var(--sand);opacity:.5;background:none;border:1px solid rgba(255,255,255,.15);padding:10px 24px;border-radius:4px;cursor:pointer;transition:opacity .2s}
+.modal-close:hover{opacity:.9}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+  <div class="emblem">✡</div>
+  <div class="eyebrow">UNAAD PASSO FUNDO SINCE 2025 &nbsp;·&nbsp; Um projeto da AD PASSO FUNDO</div>
+  <h1>AS TRIBOS DE ISRAEL</h1>
+  <p class="subtitle">Uma Jornada · Seis Tribos · Destino Eterno</p>
+  <div class="divider"></div>
+  <p class="tagline">Cada tribo tem uma história. Cada aventureiro tem um chamado. Você está pronto para descobrir onde pertence?</p>
+</header>
+
+<section class="tribes-section">
+  <div class="section-label">✦ Escolha sua tribo ✦</div>
+  <div class="tribes-grid" id="tribesGrid"></div>
+</section>
+
+<section class="trail-section">
+  <div class="trail-title">✦ A Trilha das Tribos ✦</div>
+  <div class="trail-steps" id="trailSteps"></div>
+</section>
+
+<section class="cta-section">
+  <div class="scroll-divider">
+    <div class="scroll-line"></div>
+    <div class="scroll-diamond"></div>
+    <div class="scroll-line r"></div>
+  </div>
+  <p class="mission-text">Seja fiel à sua tribo.<br>Complete a trilha. Escreva sua história.</p>
+  <p class="mission-sub">Este ano, cada tribo viverá sua <strong>primeira grande experiência</strong>.<br>Juntos formaremos algo que nenhuma geração viveu antes.</p>
+  <a class="cta-btn" href="https://www.instagram.com/unaad_pf/" target="_blank" rel="noopener">⚔ Eu aceito o desafio</a>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-symbol" id="modalSymbol"></div>
+    <div class="modal-name" id="modalName"></div>
+    <div class="modal-meaning" id="modalMeaning"></div>
+    <div class="modal-divider"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-verse" id="modalVerse"></div>
+    <button class="modal-close" onclick="closeModal()">FECHAR</button>
+  </div>
+</div>
+
+<!-- SVG SYMBOLS as hidden templates -->
+<div id="svgTemplates" style="display:none">
+
+  <div id="svg-juda">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="maneG" cx="50%" cy="55%" r="50%"><stop offset="0%" stop-color="#c0392b"/><stop offset="100%" stop-color="#6b1010"/></radialGradient>
+        <radialGradient id="faceG" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#e8a020"/><stop offset="100%" stop-color="#b06010"/></radialGradient>
+      </defs>
+      <!-- Crown -->
+      <polygon points="38,46 38,30 48,40 60,20 72,40 82,30 82,46" fill="#D4AF37"/>
+      <rect x="36" y="44" width="48" height="7" rx="3" fill="#D4AF37"/>
+      <circle cx="60" cy="26" r="4" fill="#FFD700"/>
+      <circle cx="40" cy="36" r="3" fill="#FFD700"/>
+      <circle cx="80" cy="36" r="3" fill="#FFD700"/>
+      <!-- Mane -->
+      <ellipse cx="60" cy="80" rx="36" ry="34" fill="url(#maneG)"/>
+      <path d="M28,65 Q24,50 30,40" stroke="#8b1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M24,75 Q18,60 26,52" stroke="#8b1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M92,65 Q96,50 90,40" stroke="#8b1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M96,75 Q102,60 94,52" stroke="#8b1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Face -->
+      <ellipse cx="60" cy="76" rx="24" ry="22" fill="url(#faceG)"/>
+      <!-- Eyes closed -->
+      <path d="M47,71 Q52,68 57,71" stroke="#3a1a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M63,71 Q68,68 73,71" stroke="#3a1a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Nose -->
+      <ellipse cx="60" cy="81" rx="6" ry="3.5" fill="#7a3000"/>
+      <!-- Mouth -->
+      <path d="M53,85 Q57,89 60,87 Q63,89 67,85" stroke="#5a2000" stroke-width="2" fill="none"/>
+      <!-- Chin fur -->
+      <ellipse cx="60" cy="94" rx="12" ry="8" fill="#c87020" opacity="0.6"/>
+    </svg>
+  </div>
+
+  <div id="svg-levi">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wTop" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e8b830"/><stop offset="50%" stop-color="#c8920a"/><stop offset="100%" stop-color="#a07010"/></linearGradient>
+        <linearGradient id="wFront" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#b07810"/><stop offset="100%" stop-color="#7a5008"/></linearGradient>
+        <linearGradient id="wRight" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8a5e08"/><stop offset="100%" stop-color="#5a3a04"/></linearGradient>
+        <linearGradient id="lidTop" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE566"/><stop offset="50%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#a07810"/></linearGradient>
+        <radialGradient id="holyG" cx="50%" cy="30%" r="60%"><stop offset="0%" stop-color="#FFD700" stop-opacity="0.5"/><stop offset="100%" stop-color="#FF8C00" stop-opacity="0"/></radialGradient>
+      </defs>
+      <!-- Pentagon shield -->
+      <polygon points="60,4 112,34 112,90 60,118 8,90 8,34" fill="#2a1800" stroke="#D4AF37" stroke-width="3"/>
+      <polygon points="60,10 106,38 106,88 60,112 14,88 14,38" fill="none" stroke="#a07810" stroke-width="1" opacity="0.5"/>
+      <!-- Holy glow -->
+      <ellipse cx="60" cy="55" rx="44" ry="30" fill="url(#holyG)"/>
+      <!-- Carrying poles -->
+      <rect x="4" y="74" width="26" height="7" rx="3.5" fill="#6B4A0C"/>
+      <rect x="90" y="74" width="26" height="7" rx="3.5" fill="#6B4A0C"/>
+      <!-- Ark right side -->
+      <polygon points="88,50 104,42 104,82 88,90" fill="url(#wRight)"/>
+      <polygon points="88,50 104,42 104,82 88,90" fill="none" stroke="#D4AF37" stroke-width="1.2"/>
+      <!-- Ark front face -->
+      <polygon points="30,58 88,50 88,90 30,98" fill="url(#wFront)"/>
+      <polygon points="30,58 88,50 88,90 30,98" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+      <!-- Panel lines -->
+      <line x1="30" y1="70" x2="88" y2="62" stroke="#6a4006" stroke-width="1.2" opacity="0.5"/>
+      <line x1="30" y1="82" x2="88" y2="74" stroke="#6a4006" stroke-width="1.2" opacity="0.5"/>
+      <!-- Gold rings -->
+      <rect x="34" y="65" width="8" height="14" rx="4" fill="#D4AF37"/>
+      <rect x="78" y="60" width="8" height="14" rx="4" fill="#D4AF37"/>
+      <ellipse cx="38" cy="72" rx="2.5" ry="4" fill="#7a5008"/>
+      <ellipse cx="82" cy="67" rx="2.5" ry="4" fill="#7a5008"/>
+      <!-- Lid right side -->
+      <polygon points="88,46 106,37 106,44 88,53" fill="#b08010"/>
+      <polygon points="88,46 106,37 106,44 88,53" fill="none" stroke="#D4AF37" stroke-width="1"/>
+      <!-- Lid top -->
+      <polygon points="26,52 88,46 106,37 44,43" fill="url(#lidTop)"/>
+      <polygon points="26,52 88,46 106,37 44,43" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+      <!-- Lid front -->
+      <polygon points="26,52 88,46 88,53 26,59" fill="#c09020"/>
+      <polygon points="26,52 88,46 88,53 26,59" fill="none" stroke="#D4AF37" stroke-width="1.2"/>
+      <line x1="26" y1="52" x2="88" y2="46" stroke="#FFE566" stroke-width="1.5" opacity="0.8"/>
+      <!-- Left Cherub wings -->
+      <path d="M38,50 Q24,36 20,22 Q30,34 38,46 Z" fill="#D4AF37" opacity="0.85"/>
+      <path d="M38,50 Q18,42 14,30 Q26,40 38,50 Z" fill="#FFE566" opacity="0.7"/>
+      <circle cx="40" cy="50" r="5" fill="#F0D060"/>
+      <circle cx="39" cy="48" r="1" fill="#5a3000"/>
+      <circle cx="41" cy="48" r="1" fill="#5a3000"/>
+      <!-- Right Cherub wings -->
+      <path d="M82,44 Q96,30 100,16 Q90,28 82,40 Z" fill="#D4AF37" opacity="0.85"/>
+      <path d="M82,44 Q102,36 106,24 Q94,34 82,44 Z" fill="#FFE566" opacity="0.7"/>
+      <circle cx="80" cy="44" r="5" fill="#F0D060"/>
+      <circle cx="79" cy="42" r="1" fill="#5a3000"/>
+      <circle cx="81" cy="42" r="1" fill="#5a3000"/>
+      <!-- Shekinah glow -->
+      <ellipse cx="60" cy="36" rx="12" ry="6" fill="#FFD700" opacity="0.45"/>
+      <ellipse cx="60" cy="36" rx="6" ry="3" fill="#FFF" opacity="0.25"/>
+      <line x1="60" y1="30" x2="60" y2="14" stroke="#FFD700" stroke-width="1.5" opacity="0.4"/>
+      <line x1="54" y1="32" x2="48" y2="18" stroke="#FFD700" stroke-width="1" opacity="0.3"/>
+      <line x1="66" y1="32" x2="72" y2="18" stroke="#FFD700" stroke-width="1" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div id="svg-da">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="headDa" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#f0f0f0"/><stop offset="100%" stop-color="#c0c0c0"/></radialGradient>
+        <radialGradient id="bodyDa" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#d0200a"/><stop offset="100%" stop-color="#800000"/></radialGradient>
+      </defs>
+      <!-- Body -->
+      <ellipse cx="60" cy="82" rx="28" ry="32" fill="url(#bodyDa)"/>
+      <!-- Wings left -->
+      <path d="M32,70 Q10,58 6,38 Q16,50 28,62 Q32,66 34,72Z" fill="#b81808"/>
+      <path d="M32,80 Q8,72 4,55 Q14,66 30,76 Z" fill="#c82010"/>
+      <path d="M32,90 Q14,86 10,74 Q20,82 33,90Z" fill="#a01006"/>
+      <!-- Wings right -->
+      <path d="M88,70 Q110,58 114,38 Q104,50 92,62 Q88,66 86,72Z" fill="#b81808"/>
+      <path d="M88,80 Q112,72 116,55 Q106,66 90,76 Z" fill="#c82010"/>
+      <path d="M88,90 Q106,86 110,74 Q100,82 87,90Z" fill="#a01006"/>
+      <!-- Neck -->
+      <ellipse cx="60" cy="62" rx="18" ry="14" fill="#d8d8d8"/>
+      <!-- Head -->
+      <circle cx="60" cy="44" r="22" fill="url(#headDa)"/>
+      <!-- Red crown stripe -->
+      <path d="M40,34 Q60,22 80,34 Q70,28 60,26 Q50,28 40,34Z" fill="#c0392b" opacity="0.9"/>
+      <!-- Brow ridges -->
+      <path d="M40,40 Q50,35 60,38" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M80,40 Q70,35 60,38" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Eyes -->
+      <circle cx="48" cy="44" r="7" fill="#FFB300"/>
+      <circle cx="72" cy="44" r="7" fill="#FFB300"/>
+      <circle cx="48" cy="44" r="4.5" fill="#1a0a00"/>
+      <circle cx="72" cy="44" r="4.5" fill="#1a0a00"/>
+      <circle cx="46" cy="42" r="1.5" fill="white"/>
+      <circle cx="70" cy="42" r="1.5" fill="white"/>
+      <circle cx="48" cy="44" r="7.5" fill="none" stroke="#c8a000" stroke-width="1.5"/>
+      <circle cx="72" cy="44" r="7.5" fill="none" stroke="#c8a000" stroke-width="1.5"/>
+      <!-- Beak -->
+      <path d="M54,54 L60,50 L66,54 L60,68 Z" fill="#D4AF37"/>
+      <path d="M54,54 L66,54 L60,58 Z" fill="#b08000"/>
+      <!-- Talons -->
+      <path d="M44,112 Q38,106 34,102 M44,112 Q42,108 38,106 M44,112 Q46,108 44,104 M44,112 Q50,108 50,104" stroke="#D4AF37" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M76,112 Q82,106 86,102 M76,112 Q78,108 82,106 M76,112 Q74,108 76,104 M76,112 Q70,108 70,104" stroke="#D4AF37" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div id="svg-jose">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="fol1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#2ECC71"/><stop offset="100%" stop-color="#0e6630"/></radialGradient>
+        <radialGradient id="fol2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#27AE60"/><stop offset="100%" stop-color="#0a4a20"/></radialGradient>
+      </defs>
+      <!-- Trunk -->
+      <rect x="50" y="72" width="20" height="36" rx="6" fill="#5D3A1A"/>
+      <rect x="54" y="72" width="6" height="36" fill="#7a4e22" opacity="0.5"/>
+      <!-- Roots -->
+      <path d="M50,104 Q40,110 30,116" stroke="#5D3A1A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M60,108 Q60,114 58,120" stroke="#5D3A1A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M70,104 Q80,110 90,116" stroke="#5D3A1A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <!-- Branches -->
+      <path d="M60,72 Q44,62 28,50" stroke="#4a2e10" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M60,72 Q76,62 92,50" stroke="#4a2e10" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M60,72 Q52,56 48,36" stroke="#4a2e10" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M60,72 Q68,56 72,36" stroke="#4a2e10" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <!-- Foliage -->
+      <circle cx="60" cy="58" r="20" fill="url(#fol2)"/>
+      <circle cx="36" cy="54" r="16" fill="url(#fol1)"/>
+      <circle cx="84" cy="54" r="16" fill="url(#fol1)"/>
+      <circle cx="44" cy="40" r="18" fill="url(#fol2)"/>
+      <circle cx="76" cy="40" r="18" fill="url(#fol2)"/>
+      <circle cx="60" cy="30" r="20" fill="url(#fol1)"/>
+      <circle cx="60" cy="16" r="16" fill="#34d47a"/>
+      <circle cx="54" cy="22" r="6" fill="#58e890" opacity="0.5"/>
+      <!-- Flames at base -->
+      <path d="M46,76 Q40,68 46,62 Q50,68 54,62 Q58,68 60,62 Q62,68 66,62 Q70,68 74,62 Q80,68 74,76Z" fill="#E74C3C"/>
+      <path d="M50,76 Q46,70 50,66 Q54,70 58,66 Q62,70 66,66 Q70,70 70,76Z" fill="#FF8C00" opacity="0.85"/>
+      <path d="M54,76 Q52,72 56,70 Q60,73 64,70 Q68,72 66,76Z" fill="#FFD700" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <div id="svg-benjamim">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="wolfF" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="#8a8aa0"/><stop offset="100%" stop-color="#2a2a40"/></radialGradient>
+        <radialGradient id="wolfM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#e8e0d0"/><stop offset="100%" stop-color="#a8a090"/></radialGradient>
+      </defs>
+      <!-- Hex shield -->
+      <polygon points="60,4 104,28 104,76 60,100 16,76 16,28" fill="#1a1a2e" stroke="#8B2BE2" stroke-width="3"/>
+      <polygon points="60,10 98,32 98,72 60,94 22,72 22,32" fill="none" stroke="#6a1ab2" stroke-width="1" opacity="0.5"/>
+      <!-- Ears -->
+      <polygon points="30,48 22,16 46,36" fill="#3a3a50"/>
+      <polygon points="90,48 98,16 74,36" fill="#3a3a50"/>
+      <polygon points="31,46 25,20 44,36" fill="#8B2BE2" opacity="0.7"/>
+      <polygon points="89,46 95,20 76,36" fill="#8B2BE2" opacity="0.7"/>
+      <!-- Head -->
+      <ellipse cx="60" cy="64" rx="32" ry="34" fill="url(#wolfF)"/>
+      <ellipse cx="60" cy="50" rx="26" ry="18" fill="#3a3a58"/>
+      <!-- Cheeks -->
+      <ellipse cx="42" cy="70" rx="10" ry="10" fill="#6a6a80" opacity="0.5"/>
+      <ellipse cx="78" cy="70" rx="10" ry="10" fill="#6a6a80" opacity="0.5"/>
+      <!-- Muzzle -->
+      <ellipse cx="60" cy="78" rx="18" ry="15" fill="url(#wolfM)"/>
+      <!-- Eyes glowing purple -->
+      <ellipse cx="46" cy="58" rx="8" ry="9" fill="#8B2BE2"/>
+      <ellipse cx="74" cy="58" rx="8" ry="9" fill="#8B2BE2"/>
+      <circle cx="46" cy="59" r="5" fill="#1a0030"/>
+      <circle cx="74" cy="59" r="5" fill="#1a0030"/>
+      <circle cx="44" cy="57" r="1.8" fill="white"/>
+      <circle cx="72" cy="57" r="1.8" fill="white"/>
+      <ellipse cx="46" cy="58" rx="9" ry="10" fill="none" stroke="#c060ff" stroke-width="1.5" opacity="0.7"/>
+      <ellipse cx="74" cy="58" rx="9" ry="10" fill="none" stroke="#c060ff" stroke-width="1.5" opacity="0.7"/>
+      <!-- Nose -->
+      <ellipse cx="60" cy="76" rx="7" ry="5" fill="#1a1a30"/>
+      <ellipse cx="56" cy="76" rx="2" ry="1.5" fill="#0a0a18"/>
+      <ellipse cx="64" cy="76" rx="2" ry="1.5" fill="#0a0a18"/>
+      <!-- Snarl -->
+      <path d="M46,83 Q53,87 60,85 Q67,87 74,83" stroke="#2a2a40" stroke-width="2" fill="none"/>
+      <!-- Fangs -->
+      <polygon points="50,84 47,95 53,84" fill="white"/>
+      <polygon points="70,84 73,95 67,84" fill="white"/>
+      <polygon points="43,83 41,90 45,83" fill="#e0e0e8" opacity="0.8"/>
+      <polygon points="77,83 79,90 75,83" fill="#e0e0e8" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <div id="svg-zebulom">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="seaG" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0a4a7a"/><stop offset="100%" stop-color="#061828"/></linearGradient>
+      </defs>
+      <!-- Hex shield -->
+      <polygon points="60,4 104,28 104,76 60,100 16,76 16,28" fill="url(#seaG)" stroke="#0EA5E9" stroke-width="3"/>
+      <polygon points="60,10 98,32 98,72 60,94 22,72 22,32" fill="none" stroke="#38b8f8" stroke-width="1" opacity="0.4"/>
+      <!-- Waves -->
+      <path d="M16,70 Q28,63 40,70 Q52,77 64,70 Q76,63 88,70 Q98,76 104,72" stroke="#0EA5E9" stroke-width="2" fill="none" opacity="0.5"/>
+      <!-- Hull -->
+      <path d="M26,80 Q60,90 94,80 L88,96 Q60,104 32,96 Z" fill="#4a2e10" stroke="#C8A000" stroke-width="1.5"/>
+      <rect x="26" y="78" width="68" height="5" rx="2" fill="#7a5018" stroke="#C8A000" stroke-width="1"/>
+      <!-- Mast -->
+      <rect x="58" y="18" width="5" height="62" rx="2" fill="#5D3A1A"/>
+      <rect x="50" y="15" width="21" height="6" rx="2" fill="#7a4e22" stroke="#D4AF37" stroke-width="1"/>
+      <!-- Bowsprit -->
+      <line x1="58" y1="60" x2="24" y2="44" stroke="#5D3A1A" stroke-width="3" stroke-linecap="round"/>
+      <!-- Main sail -->
+      <path d="M63,22 L63,74 L96,66 L90,26 Z" fill="#F0EAD6" stroke="#ccc" stroke-width="0.8"/>
+      <path d="M71,28 L68,68 L76,66 L79,26 Z" fill="#C0392B" opacity="0.85"/>
+      <!-- Front sail -->
+      <path d="M58,30 L58,70 L24,58 L28,36 Z" fill="#E8DFC0" stroke="#bbb" stroke-width="0.8"/>
+      <path d="M52,36 L54,68 L48,62 L46,40 Z" fill="#C0392B" opacity="0.7"/>
+      <!-- Top sail -->
+      <path d="M63,18 L63,32 L82,28 L80,18 Z" fill="#F0EAD6" opacity="0.9"/>
+      <!-- Flag -->
+      <polygon points="58,15 58,6 74,10" fill="#C0392B"/>
+      <!-- Anchor -->
+      <circle cx="40" cy="86" r="4" fill="none" stroke="#D4AF37" stroke-width="2"/>
+      <line x1="40" y1="90" x2="40" y2="98" stroke="#D4AF37" stroke-width="2"/>
+      <path d="M34,98 Q40,102 46,98" stroke="#D4AF37" stroke-width="2" fill="none"/>
+      <line x1="34" y1="91" x2="46" y2="91" stroke="#D4AF37" stroke-width="1.5"/>
+      <!-- Rigging -->
+      <line x1="60" y1="22" x2="30" y2="44" stroke="#a08050" stroke-width="0.8" opacity="0.6"/>
+      <line x1="63" y1="22" x2="96" y2="66" stroke="#a08050" stroke-width="0.8" opacity="0.6"/>
+    </svg>
+  </div>
+
+</div>
+
+<script>
+var tribes = [
+  {
+    id:'juda', name:'Jud\u00e1', hebrew:'\u05D9\u05B0\u05D4\u05D5\u05BC\u05D3\u05B8\u05D4',
+    keyword:'LEGADO', virtue:'Lideran\u00e7a \u00b7 Legado \u00b7 Esp\u00edrito', badge:'Tribo dos L\u00edderes',
+    color:'#4a7fd4', glow:'rgba(74,127,212,.55)', gradient:'radial-gradient(circle at center,#2a6dd9,#0a1e4a)',
+    desc:'A tribo do Le\u00e3o. Jud\u00e1 vai \u00e0 frente \u2014 n\u00e3o por ambi\u00e7\u00e3o, mas por chamado. Liderar \u00e9 servir com excel\u00eancia e deixar um legado espiritual que inspira gera\u00e7\u00f5es.',
+    verse:'"Jud\u00e1 \u00e9 filhote de le\u00e3o... quem ousar\u00e1 desafi\u00e1-lo?" \u2014 G\u00eanesis 49:9'
+  },
+  {
+    id:'levi', name:'Levi', hebrew:'\u05DC\u05B5\u05D5\u05B4\u05D9',
+    keyword:'SANTIDADE', virtue:'Santidade \u00b7 Mentoria \u00b7 Consagra\u00e7\u00e3o', badge:'Tribo dos Mentores',
+    color:'#e8c830', glow:'rgba(232,200,48,.55)', gradient:'radial-gradient(circle at center,#f0d000,#6b5900)',
+    desc:'A tribo da Arca. Levi foi separada para guardar o sagrado, servir no taber\u00e1culo e mentorar o povo no caminho da vida santa. Pertencer a Levi \u00e9 ser exemplo que forma outros.',
+    verse:'"Pois os l\u00e1bios do sacerdote devem guardar o conhecimento." \u2014 Malaquias 2:7'
+  },
+  {
+    id:'da', name:'D\u00e3', hebrew:'\u05D3\u05B8\u05BC\u05DF',
+    keyword:'SABEDORIA', virtue:'Debate \u00b7 Discernimento \u00b7 Verdade', badge:'Tribo dos S\u00e1bios',
+    color:'#e05040', glow:'rgba(192,57,43,.55)', gradient:'radial-gradient(circle at center,#e74c3c,#5a0a00)',
+    desc:'A tribo da \u00c1guia. D\u00e3 voa alto para enxergar al\u00e9m \u2014 questiona, debate e busca a verdade com rigor b\u00edblico. Pensamento cr\u00edtico n\u00e3o \u00e9 d\u00favida: \u00e9 amor pela profundidade da Palavra.',
+    verse:'"D\u00e3 julgar\u00e1 o seu povo como uma das tribos de Israel." \u2014 G\u00eanesis 49:16'
+  },
+  {
+    id:'jose', name:'Jos\u00e9', hebrew:'\u05D9\u05D5\u05B9\u05E1\u05B5\u05E3',
+    keyword:'PROP\u00d3SITO', virtue:'Prop\u00f3sito \u00b7 A\u00e7\u00e3o \u00b7 F\u00e9 Pr\u00e1tica', badge:'Tribo dos Realizadores',
+    color:'#40c878', glow:'rgba(39,174,96,.55)', gradient:'radial-gradient(circle at center,#2ecc71,#0a3d20)',
+    desc:'A tribo da \u00c1rvore. Jos\u00e9 sofreu, mas nunca perdeu o prop\u00f3sito. Cada a\u00e7\u00e3o da tribo \u00e9 enraizada na Palavra e voltada para o bem \u2014 porque f\u00e9 sem obras n\u00e3o transforma nada.',
+    verse:'"V\u00f3s planejastes o mal, mas Deus o planejou para o bem." \u2014 G\u00eanesis 50:20'
+  },
+  {
+    id:'benjamim', name:'Benjamim', hebrew:'\u05D1\u05BC\u05B4\u05E0\u05B0\u05D9\u05B8\u05DE\u05B4\u05D9\u05DF',
+    keyword:'CORAGEM', virtue:'Equipe \u00b7 Coragem \u00b7 Justi\u00e7a', badge:'Tribo dos Guerreiros',
+    color:'#b060f0', glow:'rgba(139,43,226,.55)', gradient:'radial-gradient(circle at center,#a855f7,#3a006b)',
+    desc:'A tribo do Lobo. Benjamim \u00e9 feroz e leal \u2014 ningu\u00e9m fica para tr\u00e1s. A for\u00e7a do lobo est\u00e1 na alcateia: trabalho em equipe, coragem diante da injusti\u00e7a e lealdade at\u00e9 o fim.',
+    verse:'"Benjamim \u00e9 lobo que arrebata; de manh\u00e3 devora a presa." \u2014 G\u00eanesis 49:27'
+  },
+  {
+    id:'zebulom', name:'Zebulom', hebrew:'\u05D6\u05B0\u05D1\u05D5\u05BC\u05DC\u05BB\u05DF',
+    keyword:'MISS\u00c3O', virtue:'Miss\u00e3o \u00b7 Cultura \u00b7 Conex\u00e3o', badge:'Tribo dos Mission\u00e1rios',
+    color:'#38c8f8', glow:'rgba(14,165,233,.55)', gradient:'radial-gradient(circle at center,#38bdf8,#0a3a5e)',
+    desc:'A tribo da Caravela. Zebulom navegava mares desconhecidos, conectava culturas e levava o que era valioso para al\u00e9m das fronteiras. Miss\u00e3o \u00e9 partir \u2014 e transformar onde chega.',
+    verse:'"Zebulom habitar\u00e1 nas praias do mar e suas costas ser\u00e3o porto de navios." \u2014 G\u00eanesis 49:13'
+  }
+];
+
+var trailNodes = [
+  {icon:'🌅',label:'In\u00edcio'},{icon:'⚔️',label:'1\u00aa Miss\u00e3o'},{icon:'🏕️',label:'Acampamento'},
+  {icon:'🔥',label:'Desafio'},{icon:'🗝️',label:'Segredo'},{icon:'👑',label:'Conquista'}
+];
+
+function getSVG(id) {
+  var el = document.getElementById('svg-' + id);
+  return el ? el.innerHTML.trim() : '';
+}
+
+// Stars
+var starsEl = document.getElementById('stars');
+for (var s = 0; s < 100; s++) {
+  var st = document.createElement('div');
+  st.className = 'star';
+  var sz = Math.random() * 2 + 0.5;
+  st.style.left = (Math.random() * 100) + '%';
+  st.style.top = (Math.random() * 100) + '%';
+  st.style.width = sz + 'px';
+  st.style.height = sz + 'px';
+  st.style.setProperty('--d', (2 + Math.random() * 4) + 's');
+  st.style.animationDelay = (Math.random() * 5) + 's';
+  starsEl.appendChild(st);
+}
+
+// Render cards
+var grid = document.getElementById('tribesGrid');
+tribes.forEach(function(t, i) {
+  var card = document.createElement('div');
+  card.className = 'tribe-card';
+  card.style.setProperty('--tribe-color', t.color);
+  card.style.setProperty('--tribe-glow', t.glow);
+  card.style.setProperty('--tribe-gradient', t.gradient);
+  card.style.setProperty('--i', i);
+
+  var bg = document.createElement('div'); bg.className = 'tribe-bg';
+  var bord = document.createElement('div'); bord.className = 'tribe-border';
+  var shine = document.createElement('div'); shine.className = 'tribe-shine';
+  var inner = document.createElement('div'); inner.className = 'tribe-inner';
+
+  var sym = document.createElement('div'); sym.className = 'tribe-symbol';
+  sym.innerHTML = getSVG(t.id);
+
+  var nm = document.createElement('div'); nm.className = 'tribe-name'; nm.textContent = t.name;
+  var hb = document.createElement('div'); hb.className = 'tribe-hebrew'; hb.textContent = t.hebrew;
+  var kw = document.createElement('div'); kw.className = 'tribe-keyword'; kw.textContent = t.keyword;
+  var vt = document.createElement('div'); vt.className = 'tribe-virtue'; vt.textContent = t.virtue;
+  var bd = document.createElement('div'); bd.className = 'tribe-badge'; bd.textContent = '\u2756 ' + t.badge;
+
+  inner.appendChild(sym); inner.appendChild(nm); inner.appendChild(hb);
+  inner.appendChild(kw); inner.appendChild(vt); inner.appendChild(bd);
+  card.appendChild(bg); card.appendChild(bord); card.appendChild(shine); card.appendChild(inner);
+
+  card.addEventListener('click', (function(tribe) {
+    return function() { openModal(tribe); };
+  })(t));
+  grid.appendChild(card);
+});
+
+// Render trail
+var trailEl = document.getElementById('trailSteps');
+trailNodes.forEach(function(n, i) {
+  var step = document.createElement('div'); step.className = 'trail-step';
+  var node = document.createElement('div'); node.className = 'trail-node'; node.textContent = n.icon;
+  var lbl = document.createElement('div'); lbl.className = 'trail-node-label'; lbl.textContent = n.label;
+  step.appendChild(node); step.appendChild(lbl);
+  trailEl.appendChild(step);
+  if (i < trailNodes.length - 1) {
+    var conn = document.createElement('div'); conn.className = 'trail-connector';
+    trailEl.appendChild(conn);
+  }
+});
+
+// Modal
+function openModal(t) {
+  var overlay = document.getElementById('modalOverlay');
+  var modal = document.getElementById('modal');
+  modal.style.setProperty('--tribe-modal-color', t.color);
+  modal.style.setProperty('--tribe-modal-glow', t.glow);
+  document.getElementById('modalSymbol').innerHTML = getSVG(t.id);
+  document.getElementById('modalName').textContent = t.name;
+  document.getElementById('modalMeaning').textContent = t.hebrew + ' \u00b7 ' + t.keyword;
+  document.getElementById('modalDesc').textContent = t.desc;
+  document.getElementById('modalVerse').textContent = t.verse;
+  overlay.classList.add('active');
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+}
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === e.currentTarget) closeModal();
+});
+</script>
+<!-- Share button -->
+<div style="position:fixed;bottom:24px;right:24px;z-index:200">
+  <button onclick="shareApp()" style="font-family:'Cinzel',Georgia,serif;font-size:.75rem;letter-spacing:2px;color:#0D0A05;background:linear-gradient(135deg,#F5D876,#D4AF37,#8B6914);border:none;border-radius:50px;padding:14px 22px;cursor:pointer;box-shadow:0 4px 20px rgba(212,175,55,.5);display:flex;align-items:center;gap:8px;font-weight:700">
+    <span style="font-size:1.1rem">📤</span> COMPARTILHAR
+  </button>
+</div>
+
+<script>
+function shareApp() {
+  var data = {
+    title: 'As Tribos de Israel — UNAAD Passo Fundo',
+    text: 'Uma jornada. Seis tribos. Destino eterno. Descubra sua tribo e aceite o desafio! Um projeto da AD Passo Fundo.',
+    url: window.location.href
+  };
+  if (navigator.share) {
+    navigator.share(data).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(function(){
+      alert('Link copiado! Cole nas redes sociais.');
+    }).catch(function(){
+      alert('Compartilhe este link: ' + window.location.href);
+    });
